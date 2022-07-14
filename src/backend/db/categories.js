@@ -17,6 +17,6 @@ export const categories = [
   },{
     _id: uuid(),
     categoryName: "Premier League",
-    description: "Quizes based on TV shows",
+    description: "English League",
   }
 ];
