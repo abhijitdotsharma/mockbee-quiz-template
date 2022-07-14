@@ -30,6 +30,6 @@ export const quizzes = [
         answer: "Attachment Issues",
       },
     ],
-    catergoryName: "TV Show",
+    catergoryName: "La Liga",
   },
 ];
