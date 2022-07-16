@@ -1,14 +1,11 @@
 import "./App.css";
 import Mockman from "mockman-js";
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Link} from 'react-router-dom';
+//pages
+import { HomePage } from "./pages";
 
-const HomePage = () => {
-  return(
-    <div>
-      <h1>I am homepage</h1>
-    </div>
-  )
-}
+import {Rules} from "./components"
+
 
 function App() {
   return (
@@ -16,6 +13,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/rules" element={<Rules/>}/>
+        {/* <Route path="/quiz" element={<QuizPage/>}/> */}
+        <Route path="/mock" element={<Mockman/>}/>
+        <Route path="*" element={<div>Not Found - 404</div>} />
       </Routes>
 
       {/* <Mockman colorScheme="dark" /> */}

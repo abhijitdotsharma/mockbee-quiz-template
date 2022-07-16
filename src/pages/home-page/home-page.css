@@ -1,0 +1,58 @@
+.homepage{
+    padding-left: 10rem;
+}
+
+.flex{
+    display: flex;
+}
+
+/* landing text */
+.landing-text{
+
+    font-family: 'lato', sans-serif;
+    position: absolute;
+    /* background-color: aquamarine; */
+    top: 4rem;
+    text-align: left;
+    width: 40%;
+    height: 60%;
+    margin-left: 2rem;
+}
+
+.btn-landing-text{
+    background-color: #ffd675;
+    color: black;
+    padding: 1rem 1.6rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+
+/* landing footer */
+.landing-footer{
+    position: relative;
+    /* background-color:  salmon; */
+    width: 20%;
+    height: 98vh;
+}
+
+.landing-footer p{
+    position: absolute;
+    bottom: 1rem;
+    left: 2.5rem;
+}
+
+/* hero */
+.hero-wrapper{
+    width: 80%;
+    height: 98vh;
+    /* border: 1px solid black; */
+}
+
+.hero-img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.9;
+}

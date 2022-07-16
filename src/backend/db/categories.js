@@ -8,7 +8,15 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "TV Show",
-    description: "Quizes based on TV shows",
-  },
+    categoryName: "Champions League",
+    description: "The Championssssss!",
+  },{
+    _id: uuid(),
+    categoryName: "La Liga",
+    description: "Ankara messi, ankara messi",
+  },{
+    _id: uuid(),
+    categoryName: "Premier League",
+    description: "English League",
+  }
 ];
