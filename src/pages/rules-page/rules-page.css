@@ -1,0 +1,21 @@
+.rules-wrapper{
+    width: 700px;
+    height: 500px;
+
+    /* centre div */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    padding-top: 2rem;
+    text-align: center;
+
+    font-size: 1.8rem;
+}
+
+.rules-section{
+    border: 1px solid;
+}
