@@ -9,14 +9,16 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "Champions League",
-    description: "The Championssssss!",
-  },{
+    description: "The champions",
+  },
+  {
     _id: uuid(),
     categoryName: "La Liga",
-    description: "Ankara messi, ankara messi",
-  },{
+    description: "Ankara messi",
+  },
+  {
     _id: uuid(),
     categoryName: "Premier League",
-    description: "English League",
-  }
+    description: "english football"
+  },
 ];
