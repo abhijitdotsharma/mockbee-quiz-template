@@ -1,17 +1,27 @@
 import axios from "axios";
+import {useQuiz} from "../../context/quiz-context";
+import {useNavigate} from "react-router-dom";
 
 export default function Category({category}) {
 
-    const {categoryName, description, id, _id} = category;
+    const navigate = useNavigate();
+    
+    const {mcqs, setMcqs} = useQuiz();
+
+    const {categoryName, description} = category;
 
     async function playNowHandler(categoryId){
-        console.log("cat id - ", categoryId)
-        //calls the quizzes
-        const response = await axios.get(`/api/quizzes/${categoryId}`)
-        console.log("Response - ", response)
+        //calls the quizzes of a particular category
+        const response = await axios.get(`/api/categories/quizzes/${categoryId}`)
+        console.log(response.data.quizzes[0].mcqs)
+
+        //setMcqs to quizContext
+        setMcqs(prev => ({...prev, questions: response?.data?.quizzes[0]?.mcqs}))
+        navigate("/quiz-page")
     }
 
-    console.log("category comp - ", category)
+    // console.log("category comp - ", category)
+
     return (
         <div className="card-horizontal overlay"
         style={{margin: "1rem auto"}}
@@ -21,7 +31,7 @@ export default function Category({category}) {
                 <div className="text-overlay">
                     <h3>{categoryName}</h3>
                     <button
-                    onClick={() => playNowHandler(_id)}
+                    onClick={() => playNowHandler(category._id)}
                     >Play now</button>
                 </div>
             </div>
