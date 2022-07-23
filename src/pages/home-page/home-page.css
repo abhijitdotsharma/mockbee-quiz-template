@@ -15,7 +15,6 @@
     top: 4rem;
     text-align: left;
     width: 40%;
-    height: 60%;
     margin-left: 2rem;
 }
 
@@ -45,9 +44,11 @@
 
 /* hero */
 .hero-wrapper{
-    width: 80%;
-    height: 98vh;
+    /* width: 80%;
+    height: 98vh; */
     /* border: 1px solid black; */
+    border: 1px solid red;
+    width: 10rem;
 }
 
 .hero-img{
