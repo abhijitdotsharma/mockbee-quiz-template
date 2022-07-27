@@ -1,0 +1,18 @@
+.correct-option{
+    border: 1px solid black;
+    background-color: green;
+}
+
+.correct-clicked{
+    border: 1px solid black;
+    background-color: green;
+}
+
+.normal{
+   border: 1px solid salmon; 
+}
+
+.wrong-clicked{
+    border: 1px solid black;
+    background-color: red;
+}
