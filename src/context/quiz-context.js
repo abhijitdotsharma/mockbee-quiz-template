@@ -7,7 +7,7 @@ const QuizContext = createContext();
 //provide context 
 const QuizProvider = ({children}) => {
 
-
+    const [correctCount, setCorrectCount] = useState(0)
     const [mcqs, setMcqs] = useState({
         step: 0,
         // step: 0,
@@ -19,7 +19,7 @@ const QuizProvider = ({children}) => {
     })
 
     return(
-        <QuizContext.Provider value={{mcqs, setMcqs}}>
+        <QuizContext.Provider value={{mcqs, setMcqs, correctCount, setCorrectCount}}>
             {children}
         </QuizContext.Provider>
     )
