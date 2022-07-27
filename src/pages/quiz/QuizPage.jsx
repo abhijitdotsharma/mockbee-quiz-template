@@ -1,44 +1,41 @@
 import { useEffect } from "react";
-import { useQuiz } from "../../context/quiz-context"
+import { useQuiz } from "../../context/quiz-context";
+import {useNavigate, Navigate} from "react-router-dom";
 
-/**
- * correctCount inside QuizPage re-renders on each question, so at max it can
- * be 1. This was the bug, can be solved if using a state variable?
- * But, if that updates, it will make the QuizPage rerender
- * 
- */
-let correctCount = 0;
 
 
 export default function QuizPage() {
 
-    
+    const navigate = useNavigate();
+    const { mcqs, setMcqs} = useQuiz();
+    const {correctCount, setCorrectCount} = useQuiz();
 
-    function checkAnswer(correctAns, clickedAns) {
-        console.log(`correctAns-${correctAns} || clickedAns-${clickedAns}`);
+    console.log("mcqs Obj in QuizPage - ", mcqs)
+
+    function checkAnswer(correctAns, clickedAns, clickedOptionQuestionId) {
+
         if(correctAns === clickedAns){
-            console.log("correctCount before-", correctCount)
-            correctCount++
-            console.log("correctCount after-", correctCount)
+            console.log("correctCount before: ", correctCount)
+            setCorrectCount(prev => prev+1)
+            console.log("correctCount after: ", correctCount)
+        //Bug - clicking on correct option keeps increasing the count. Should increase only once
         }
+
+        //save the 'clicked' option by modifying mcqs data structure
+        setMcqs(prev => {
+            return {
+                ...prev,
+                questions: [...prev.questions.map(question => {
+                //set clicked flag for one question at a time in questions array
+                    if (question._id === clickedOptionQuestionId){
+                        return {...question, clicked: clickedAns}
+                    }
+                    return question
+                })]
+            }
+        })
     }
 
-    const { mcqs, setMcqs } = useQuiz();
-    // mcqs = {
-    //     step: 0,
-    //     questions: [
-    //     { id: 1, title: 'What is your name?'..... },
-    //     { id: 2, title: 'What do you do?' },
-    //     { id: 3, title: 'Where you from?' }
-    //     ]
-    // }
-
-    useEffect(() => {
-        return () => {
-            console.log("correctCount is - ", correctCount)
-        }
-
-    }, [])
 
     function previousQuestion() {
         if (mcqs.step === 0) return //should not go further prev if first question
@@ -46,29 +43,30 @@ export default function QuizPage() {
     }
 
     function nextQuestion() {
-        if (mcqs.step === (mcqs.questions.length - 1)) return //shouldn't go forward if last question
+        if (mcqs.step === (mcqs.questions.length - 1)){
+            //shouldn't go forward if last question, it should go to result page
+            navigate("/results-page")
+        } 
         setMcqs(prev => ({ ...prev, step: prev.step + 1 }))
     }
 
-    // console.log("mcqs are - ", mcqs)
-    // console.log(mcqs.step)
-    // console.log(mcqs.questions[mcqs.step].question)
+    console.log("correctCount before return: ", correctCount)
     return (
         <div>
             <h1>I am quiz page</h1>
             <h3>Question : {mcqs.questions[mcqs.step].question}</h3>
 
             <p
-                onClick={() => checkAnswer(mcqs.questions[mcqs.step].answer, mcqs.questions[mcqs.step].options[0])}
+                onClick={() => checkAnswer(mcqs.questions[mcqs.step].answer, mcqs.questions[mcqs.step].options[0], mcqs.questions[mcqs.step]._id)}
             >A. {mcqs.questions[mcqs.step].options[0]}</p>
             <p
-                onClick={() => checkAnswer(mcqs.questions[mcqs.step].answer, mcqs.questions[mcqs.step].options[1])}
+                onClick={() => checkAnswer( mcqs.questions[mcqs.step].answer, mcqs.questions[mcqs.step].options[1], mcqs.questions[mcqs.step]._id)}
             >B. {mcqs.questions[mcqs.step].options[1]}</p>
             <p
-                onClick={() => checkAnswer(mcqs.questions[mcqs.step].answer, mcqs.questions[mcqs.step].options[2])}
+                onClick={() => checkAnswer( mcqs.questions[mcqs.step].answer, mcqs.questions[mcqs.step].options[2], mcqs.questions[mcqs.step]._id)}
             >C. {mcqs.questions[mcqs.step].options[2]}</p>
             <p
-                onClick={() => checkAnswer(mcqs.questions[mcqs.step].answer, mcqs.questions[mcqs.step].options[3])}
+                onClick={() => checkAnswer( mcqs.questions[mcqs.step].answer, mcqs.questions[mcqs.step].options[3], mcqs.questions[mcqs.step]._id)}
             >D. {mcqs.questions[mcqs.step].options[3]}</p>
 
             <button onClick={() => previousQuestion()}>previous</button>
