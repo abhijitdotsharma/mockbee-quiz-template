@@ -1,5 +1,6 @@
 import "./results-page.css"
 import { useQuiz } from "../../context/quiz-context"
+import { NavigationTop } from "../../components";
 
 export default function ResultsPage() {
 
@@ -32,23 +33,43 @@ export default function ResultsPage() {
 
 
     return (
-        <div>
-            <h1>I am Results Page</h1>
-            <h2>Correct Count : {correctCount}</h2>
+        <div className="results-page-container">
 
-            {questions.map((item, idx) =>
-                <div key={idx}>
-                    <h3>Question: {item.question}</h3>
-                    {item.options.map((option, optionIdx) =>
-                        <p key={optionIdx}
-                            className={`
+            <NavigationTop />
+
+            <main className="results">
+                <h1 className="results-heading">I am Results Page</h1>
+                <h3 className="results-score btn btn-secondary">Correct Count : {correctCount}</h3>
+
+                <div className="results-answers">
+                    {questions.map((item, idx) =>
+                        <div key={idx}>
+                            <h3>Question: {item.question}</h3>
+                            {item.options.map((option, optionIdx) =>
+                                <p key={optionIdx}
+                                    className={`
                         ${optionClicked(item, optionIdx)}
                         `}>
-                            {optionIdx + 1}. {option}
-                        </p>
+                                    {optionIdx + 1}. {option}
+                                </p>
+                            )}
+                        </div>
                     )}
                 </div>
-            )}
+            </main>
+
+            <footer className="landing-footer">
+                <h3 className="footer-txt">
+                    made by <a className="footer-link" href="https://abhijit.super.site">Abhijit</a> 
+                </h3>
+                <p className="footer-socials"> 
+                    <a className="footer-link" href="https://github.com/abhijitdotsharma/popcorn">GitHub</a> 
+                    <span className="footer-link-gap">||</span>
+                    <a className="footer-link" href="https://linkedin.com/in/abhijitdotsharma">LinkedIn</a>
+                    <span className="footer-link-gap">||</span>
+                    <a className="footer-link" href="https://abhijit.super.site">Hire me ?</a>
+                </p>
+            </footer>
         </div>
     )
 }
