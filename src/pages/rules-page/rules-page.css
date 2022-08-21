@@ -1,21 +1,27 @@
 .rules-wrapper{
-    width: 700px;
-    height: 500px;
-
+    max-width: 700px;
+    
     /* centre div */
     position: absolute;
-    top: 0;
+    top: 20vh;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
 
-    padding-top: 2rem;
     text-align: center;
-
     font-size: 1.8rem;
 }
 
 .rules-section{
     border: 1px solid;
+    border-radius: 5px;
+    background-color: beige;
+    /* margin: 0 1rem; */
+    margin-bottom: 2rem;
 }
+
+.btn > a{
+    color: #04061f;
+}
+
