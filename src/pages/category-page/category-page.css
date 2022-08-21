@@ -1,0 +1,6 @@
+.category-page-wrapper{
+    /*for footer to be at bottom*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
