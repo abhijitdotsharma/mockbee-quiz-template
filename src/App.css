@@ -1,23 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&display=swap");
 
-
-.txt-lg{
-  font-weight: 900;
-    font-size: 4rem;
-    line-height: 4rem;
-    letter-spacing: 2px;
+.App {
+  font-family: "Nunito Sans", sans-serif;
 }
 
-.txt-md{
+.txt-lg {
+  font-size: 2rem;
+}
+
+.txt-md {
+  font-size: 1.6rem;
+}
+
+.txt-sm {
+  font-size: 1.4rem;
+}
+
+/*overwriting buttons for quiz app from component library*/
+.btn {
+  padding: 0.5em 1.5em;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #fdd142;
+  border: 2px solid #fdd142;
+  color: #edfdfd;
   font-weight: 700;
-    font-size: 2rem;
-    line-height: 2rem;
-    letter-spacing: 2px;
 }
 
-.txt-sm{
-  font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 1rem;
-    letter-spacing: 1px;
+.btn-secondary {
+  border: 2px solid #fdd142;
+  background-color: white;
+  color: black;
 }
