@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuiz } from "../../context/quiz-context";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import RulesPage from "../rules-page/RulesPage";
-import { NavigationTop } from "../../components";
+import { Footer, NavigationTop } from "../../components";
 import "./quiz-page.css"
 
 export default function QuizPage() {
@@ -81,18 +81,7 @@ export default function QuizPage() {
                 </div>
             </main>
             
-            <footer className="landing-footer">
-                <h3 className="footer-txt">
-                    made by <a className="footer-link" href="https://abhijit.super.site">Abhijit</a> 
-                </h3>
-                <p className="footer-socials"> 
-                    <a className="footer-link" href="https://github.com/abhijitdotsharma/popcorn">GitHub</a> 
-                    <span className="footer-link-gap">||</span>
-                    <a className="footer-link" href="https://linkedin.com/in/abhijitdotsharma">LinkedIn</a>
-                    <span className="footer-link-gap">||</span>
-                    <a className="footer-link" href="https://abhijit.super.site">Hire me ?</a>
-                </p>
-            </footer>
+            <Footer />
 
         </div> :
             <RulesPage setRulesShown={setRulesShown} />
