@@ -1,8 +1,10 @@
 .nav-top{
+    display: block;
     position: absolute;
-    top: 1rem;
-    left: 2rem;
+    top: 2rem;
+    left: 8%;
     width: 8rem;
+    z-index: 10; /*has to be more than other components like landing, quiz, results*/
 }
 
 .nav-img{

@@ -1,0 +1,19 @@
+.card-horizontal{
+    border-radius: 4px;
+}
+
+.horizontal-image{
+    border-radius: 4px;
+}
+
+.horizontal-image > img{
+    border-radius: 4px;
+}
+
+
+.text-overlay > button{
+    /*colors to be chnged with variables later*/
+    background-color: #fdd142;
+    color: #04061f;
+    font-weight: 700;
+}
