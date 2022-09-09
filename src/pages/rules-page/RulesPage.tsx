@@ -1,7 +1,14 @@
 import './rules-page.css';
 import { NavigationTop } from '../../components';
 import { Link, useLocation } from 'react-router-dom';
-export default function RulesPage({setRulesShown}){
+import { Dispatch, SetStateAction } from 'react';
+
+type Props = {
+    setRulesShown?: Dispatch<SetStateAction<boolean>>
+}
+
+
+export default function RulesPage({setRulesShown}: Props): JSX.Element{
 
     return(
         <div>
@@ -13,7 +20,7 @@ export default function RulesPage({setRulesShown}){
                     <p>Each question gets you 10 more points</p>
                     <button
                     className='btn btn-primary'
-                    onClick={() => setRulesShown(prev => prev = true)}>
+                    onClick={() => setRulesShown?.((prev: boolean) => prev = true)}>
                         <Link to="/quiz-page">Start Quiz</Link>
                     </button>
                     

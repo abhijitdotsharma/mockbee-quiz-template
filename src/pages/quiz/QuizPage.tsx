@@ -2,31 +2,31 @@ import { useState, useEffect } from "react";
 import { useQuiz } from "../../context/quiz-context";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import RulesPage from "../rules-page/RulesPage";
-import { NavigationTop } from "../../components";
+import { Footer, NavigationTop } from "../../components";
 import "./quiz-page.css"
+import { MCQS, Question } from "../../types";
+
 
 export default function QuizPage() {
 
     const navigate = useNavigate();
     const { mcqs, setMcqs } = useQuiz();
 
-    console.log("QuizPage, mcqs from useQuiz() - ", JSON.stringify(mcqs, null, 2))
-    const { correctCount, setCorrectCount } = useQuiz();
+    const { setCorrectCount } = useQuiz();
 
     //show <RulesPage/> when user comes from Category -> QuizPage
     const [rulesShown, setRulesShown] = useState(false)
 
 
 
-    function checkAnswer(correctAns, clickedAns, clickedOptionQuestionId) {
+    function checkAnswer(correctAns: string, clickedAns: string, clickedOptionQuestionId: string): void {
 
         if (correctAns === clickedAns) {
-            setCorrectCount(prev => prev + 1)
-            //Bug - clicking on correct option keeps increasing the count. Should increase only once
+            setCorrectCount( (prev: number) => prev+1)
         }
 
         //save the 'clicked' option by modifying mcqs data structure
-        setMcqs(prev => {
+        setMcqs((prev : MCQS) => {
             return {
                 ...prev,
                 questions: [...prev.questions.map(question => {
@@ -39,6 +39,7 @@ export default function QuizPage() {
             }
         })
     }
+
 
 
     function previousQuestion() {
@@ -81,18 +82,7 @@ export default function QuizPage() {
                 </div>
             </main>
             
-            <footer className="landing-footer">
-                <h3 className="footer-txt">
-                    made by <a className="footer-link" href="https://abhijit.super.site">Abhijit</a> 
-                </h3>
-                <p className="footer-socials"> 
-                    <a className="footer-link" href="https://github.com/abhijitdotsharma/popcorn">GitHub</a> 
-                    <span className="footer-link-gap">||</span>
-                    <a className="footer-link" href="https://linkedin.com/in/abhijitdotsharma">LinkedIn</a>
-                    <span className="footer-link-gap">||</span>
-                    <a className="footer-link" href="https://abhijit.super.site">Hire me ?</a>
-                </p>
-            </footer>
+            <Footer />
 
         </div> :
             <RulesPage setRulesShown={setRulesShown} />
