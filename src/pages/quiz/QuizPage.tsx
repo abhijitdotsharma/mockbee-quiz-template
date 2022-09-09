@@ -4,29 +4,29 @@ import { useNavigate, Navigate, Link } from "react-router-dom";
 import RulesPage from "../rules-page/RulesPage";
 import { Footer, NavigationTop } from "../../components";
 import "./quiz-page.css"
+import { MCQS, Question } from "../../types";
+
 
 export default function QuizPage() {
 
     const navigate = useNavigate();
     const { mcqs, setMcqs } = useQuiz();
 
-    console.log("QuizPage, mcqs from useQuiz() - ", JSON.stringify(mcqs, null, 2))
-    const { correctCount, setCorrectCount } = useQuiz();
+    const { setCorrectCount } = useQuiz();
 
     //show <RulesPage/> when user comes from Category -> QuizPage
     const [rulesShown, setRulesShown] = useState(false)
 
 
 
-    function checkAnswer(correctAns, clickedAns, clickedOptionQuestionId) {
+    function checkAnswer(correctAns: string, clickedAns: string, clickedOptionQuestionId: string): void {
 
         if (correctAns === clickedAns) {
-            setCorrectCount(prev => prev + 1)
-            //Bug - clicking on correct option keeps increasing the count. Should increase only once
+            setCorrectCount( (prev: number) => prev+1)
         }
 
         //save the 'clicked' option by modifying mcqs data structure
-        setMcqs(prev => {
+        setMcqs((prev : MCQS) => {
             return {
                 ...prev,
                 questions: [...prev.questions.map(question => {
@@ -39,6 +39,7 @@ export default function QuizPage() {
             }
         })
     }
+
 
 
     function previousQuestion() {
