@@ -3,7 +3,6 @@ import Mockman from "mockman-js";
 import { Routes, Route, Link } from 'react-router-dom';
 
 import { CategoryPage, HomePage, RulesPage, ResultsPage, QuizPage } from "./pages";
-// import QuizPage from "./pages/quiz/QuizPage";
 
 
 function App() {
