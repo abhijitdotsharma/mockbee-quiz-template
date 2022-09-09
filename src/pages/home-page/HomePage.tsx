@@ -4,7 +4,7 @@ import { NavigationTop, Footer } from '../../components';
 import "./home-page.css";
 
 
-export default function HomePage() {
+export default function HomePage(): JSX.Element {
 
     return (
         <div className="homepage">
@@ -20,7 +20,7 @@ export default function HomePage() {
                 </div>
                 <main className="txt-container">
                     <p>
-                        ready to know what you don't know?
+                        ready to test your football knowledge?
                         <Link className='btn btn-primary txt-sm' to="/category-page">LFG 🚀</Link>
                     </p>
                     
