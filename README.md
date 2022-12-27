@@ -49,7 +49,8 @@ Copy and paste the below commands in sequence
 * React Context API
 * React Router v6
 ## Demo
-A video of the app
+![popcorn](https://user-images.githubusercontent.com/61442144/209614013-5ad7bb99-a09b-4721-9611-32175f24c5df.gif)
+
 
 ## Future Improvments : 
 - Refactor using TypeScript (currently ongoing)
