@@ -13,6 +13,13 @@
     padding: 1rem;
 }
 
+.results-answers{
+  padding: 1rem;
+  margin-bottom: 0.4rem;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+
 
 .results-score{
     width: fit-content;
@@ -28,9 +35,6 @@
   background-color: #027a79;
 }
 
-.normal {
-  
-}
 
 .wrong-clicked {
   background-color: #e41c2a;

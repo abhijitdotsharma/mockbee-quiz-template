@@ -38,19 +38,17 @@ export default function ResultsPage() {
             <NavigationTop />
 
             <main className="results">
-                <h1 className="results-heading">I am Results Page</h1>
-                <h3 className="results-score btn btn-secondary">Correct Count : {correctCount}</h3>
+                <h1 className="results-heading">Results</h1>
+                <h3 className="results-score btn btn-secondary">Score : {correctCount * 10}</h3>
 
-                <div className="results-answers">
+                <div >
                     {questions.map((item, idx) =>
-                        <div key={idx}>
+                        <div className="results-answers" key={idx}>
                             <h3>Question: {item.question}</h3>
                             {item.options.map((option, optionIdx) =>
                                 <p key={optionIdx}
-                                    className={`
-                        ${optionClicked(item, optionIdx)}
-                        `}>
-                                    {optionIdx + 1}. {option}
+                                className={`${optionClicked(item, optionIdx)}`}>
+                                {optionIdx + 1}. {option}
                                 </p>
                             )}
                         </div>
@@ -60,10 +58,10 @@ export default function ResultsPage() {
 
             <footer className="landing-footer">
                 <h3 className="footer-txt">
-                    made by <a className="footer-link" href="https://abhijit.super.site">Abhijit</a> 
+                    made by <a className="footer-link" href="https://abhijit.super.site">Abhijit</a>
                 </h3>
-                <p className="footer-socials"> 
-                    <a className="footer-link" href="https://github.com/abhijitdotsharma/popcorn">GitHub</a> 
+                <p className="footer-socials">
+                    <a className="footer-link" href="https://github.com/abhijitdotsharma/popcorn">GitHub</a>
                     <span className="footer-link-gap">||</span>
                     <a className="footer-link" href="https://linkedin.com/in/abhijitdotsharma">LinkedIn</a>
                     <span className="footer-link-gap">||</span>
